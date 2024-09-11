@@ -1,0 +1,679 @@
+<html><head><base href="https://imporshoes.com/"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Imporshoes - Zapatillas Importadas de Calidad Premium</title><style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            color: #f0f0f0;
+            overflow-x: hidden;
+            background: #1a1a1a;
+        }
+        
+        .holographic-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 100%);
+            pointer-events: none;
+            z-index: -1;
+            animation: hologram 10s linear infinite;
+        }
+        
+        @keyframes hologram {
+            0% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+        
+        .falling-sneakers {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+        }
+        
+        .sneaker {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://i.ibb.co/sy1dDRn/IMG-20240910-WA0023.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.5;
+            animation: fall linear infinite;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(360deg);
+            }
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header h1 {
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #00ffff);
+            animation: headerGlow 10s linear infinite;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        @keyframes headerGlow {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        nav {
+            background-color: #444;
+            padding: 0.5em;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 1em;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+        
+        main {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 1em;
+            background-color: rgba(42, 42, 42, 0.7);
+            backdrop-filter: blur(5px);
+            min-height: calc(100vh - 200px);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1em;
+        }
+        
+        .product {
+            border: 1px solid #ddd;
+            padding: 0.5em;
+            text-align: center;
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #f0f0f0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0), rgba(255,255,255,0.1));
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .product:hover::before {
+            left: 100%;
+            opacity: 1;
+        }
+        
+        .product img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1em;
+            transition: transform 0.3s ease;
+        }
+        
+        .product:hover img {
+            transform: scale(1.05);
+        }
+        
+        .product h3 {
+            color: #ffffff;
+            margin: 0.5em 0;
+        }
+        
+        .product p {
+            color: #e0e0e0;
+            margin: 0.5em 0;
+        }
+        
+        .product p.price {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .product button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 0.75em;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 0.5em 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.3s ease;
+        }
+        
+        .product button:hover {
+            background-color: #45a049;
+        }
+        
+        .product button:hover::before {
+            left: 100%;
+        }
+        
+        .product button:active {
+            transform: scale(0.98);
+        }
+        
+        .cart {
+            position: fixed;
+            top: 1em;
+            right: 1em;
+            background-color: #333;
+            color: white;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cart:hover {
+            background-color: #4CAF50;
+        }
+        
+        .cart-display {
+            position: fixed;
+            top: 60px;
+            right: 5%;
+            background-color: rgba(51, 51, 51, 0.9);
+            color: white;
+            padding: 1em;
+            border-radius: 5px;
+            z-index: 1000;
+            max-height: 80vh;
+            overflow-y: auto;
+            display: none;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .cart-display ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .cart-display li {
+            margin-bottom: 0.5em;
+            padding: 0.5em;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 3px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: 2em;
+        }
+
+        @media (min-width: 768px) {
+            main {
+                padding: 2em;
+            }
+            
+            .product-grid {
+                gap: 2em;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            main {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .product {
+                padding: 0.3em;
+            }
+            
+            .product h3 {
+                font-size: 0.9em;
+            }
+            
+            .product p {
+                font-size: 0.8em;
+            }
+            
+            .product button {
+                font-size: 0.9em;
+                padding: 0.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5em 0;
+            }
+            
+            .cart {
+                font-size: 0.8em;
+            }
+            
+            .cart-display {
+                width: 95%;
+                right: 2.5%;
+                left: 2.5%;
+            }
+        }
+
+        .image-placeholder {
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .lazy-image {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        
+        .lazy-image.loaded {
+            opacity: 1;
+        }
+    </style></head><body>
+    <div class="holographic-overlay"></div>
+    <div class="falling-sneakers" aria-hidden="true"></div>
+    <header>
+        <h1>Imporshoes</h1>
+    </header>
+    <nav></nav>
+    <main>
+        <section id="inicio">
+            <h2 style="color: #ffffff;">Bienvenidos a Imporshoes</h2>
+            <p style="color: #e0e0e0;">Tu destino para las mejores zapatillas importadas de calidad premium. Explora nuestra selección de marcas y estilos exclusivos, perfectos para completar cualquier look. Desde clásicos como Adidas y Nike hasta tendencias actuales como Bad Bunny, temos lo último en moda y comodidad para todos los gustos y ocasiones. Descubre nuestros precios competitivos y envíos rápidos a todo el país. ¡Visítanos hoy mismo y eleva tu estilo al siguiente nivel!</p>
+        </section>
+        <section id="productos">
+            <h2 style="color: #ffffff;">Nuestros Productos</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <img data-src="https://i.ibb.co/sy1dDRn/IMG-20240910-WA0023.jpg" alt="Adidas campus, zapatillas blancas con rayas negras" width="250" height="200" class="lazy-image">
+                    <h3>Adidas campus</h3>
+                    <p>Talles 34 al 44, calidad premium</p>
+                    <p class="price">Precio: $44900</p>
+                    <button onclick="addToCart('Adidas campus', 44900)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/3fhRshh/IMG-20240910-WA0025-1.jpg" alt="New balance, zapatillas grises con logo N" width="250" height="200" class="lazy-image">
+                    <h3>New balance</h3>
+                    <p>Talles 38 al 44, suela de goma, calidad premium</p>
+                    <p class="price">Precio: $53900</p>
+                    <button onclick="addToCart('New balance', 53900)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/JFW6K3D/IMG-20240910-WA0026.jpg" alt="Voytu, zapatillas blancas con detalles en azul" width="250" height="200" class="lazy-image">
+                    <h3>Voytu</h3>
+                    <p>Excelente calidad premium, talles 37 al 44</p>
+                    <p class="price">Precio: $59500</p>
+                    <button onclick="addToCart('Voytu', 59500)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/YpDDrdn/IMG-20240910-WA0027.jpg" alt="Bad Bunny, zapatillas blancas con diseño especial" width="250" height="200" class="lazy-image">
+                    <h3>Bad Bunny</h3>
+                    <p>Talles de 35 al 43, calidad premium</p>
+                    <p class="price">Precio: $59800</p>
+                    <button onclick="addToCart('Bad Bunny', 59800)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/9bxbFRv/IMG-20240910-WA0029.jpg" alt="Nike Jordan, zapatillas altas en blanco y rojo" width="250" height="200" class="lazy-image">
+                    <h3>Nike Jordan</h3>
+                    <p>Talles de 38 al 44</p>
+                    <p class="price">Precio: $55900</p>
+                    <button onclick="addToCart('Nike Jordan', 55900)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/98K4Kq0/IMG-20240910-WA0030.jpg" alt="Jordan negro, zapatillas altas en negro" width="250" height="200" class="lazy-image">
+                    <h3>Jordan negro</h3>
+                    <p>Talles 37 al 45, hermosas</p>
+                    <p class="price">Precio: $55900</p>
+                    <button onclick="addToCart('Jordan negro', 55900)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/brBLP35/IMG-20240909-WA0020.jpg" alt="Adidas forum, zapatillas grises y blancas" width="250" height="200" class="lazy-image">
+                    <h3>Adidas forum</h3>
+                    <p>Color gris/blanco, talles de 38 al 43</p>
+                    <p class="price">Precio: $44900</p>
+                    <button onclick="addToCart('Adidas forum', 44900)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/88JLn3f/IMG-20240910-WA0031.jpg" alt="Jordan retro 4, zapatillas altas en rojo y negro" width="250" height="200" class="lazy-image">
+                    <h3>Jordan retro 4</h3>
+                    <p>Talles de 34 al 44, impecables en cajas</p>
+                    <p class="price">Precio: $54900</p>
+                    <button onclick="addToCart('Jordan retro 4', 54900)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/fXxQKCF/IMG-20240910-WA0032.jpg" alt="Jordan negro/violeta, zapatillas altas en negro y violeta" width="250" height="200" class="lazy-image">
+                    <h3>Jordan negro/violeta</h3>
+                    <p>Talles 37 al 44</p>
+                    <p class="price">Precio: $55900</p>
+                    <button onclick="addToCart('Jordan negro/violeta', 55900)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/N39dKSR/IMG-20240910-WA0033.jpg" alt="Vans k, zapatillas bajas en negro" width="250" height="200" class="lazy-image">
+                    <h3>Vans k</h3>
+                    <p>Talles de 34 al 44, impecables en cajas</p>
+                    <p class="price">Precio: $44500</p>
+                    <button onclick="addToCart('Vans k', 44500)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/99sQYNp/IMG-20240910-WA0035.jpg" alt="Nike, zapatillas bajas en blanco" width="250" height="200" class="lazy-image">
+                    <h3>Nike</h3>
+                    <p>Talles 34 al 44</p>
+                    <p class="price">Precio: $44900</p>
+                    <button onclick="addToCart('Nike', 44900)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/7kh8zj5/IMG-20240910-WA0036.jpg" alt="Adidas superstar, zapatillas bajas en blanco con rayas negras" width="250" height="200" class="lazy-image">
+                    <h3>Adidas superstar</h3>
+                    <p>Calidad premium, talles de 34 al 43</p>
+                    <p class="price">Precio: $53900</p>
+                    <button onclick="addToCart('Adidas superstar', 53900)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/yQK0SyY/IMG-20240910-WA0037.jpg" alt="Nike pegasus, zapatillas deportivas en gris y naranja" width="250" height="200" class="lazy-image">
+                    <h3>Nike pegasus</h3>
+                    <p>Talles 38 al 53</p>
+                    <p class="price">Precio: $53900</p>
+                    <button onclick="addToCart('Nike pegasus', 53900)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/dKhbmsz/IMG-20240909-WA0021.jpg" alt="Puma premium, zapatillas deportivas en negro y blanco" width="250" height="200" class="lazy-image">
+                    <h3>Puma premium</h3>
+                    <p>Talles 34 al 44</p>
+                    <p class="price">Precio: $46600</p>
+                    <button onclick="addToCart('Puma premium', 46600)">Agregar al carrito</button>
+                </div>
+                <div class="product">
+                    <img data-src="https://i.ibb.co/dJK0XyW/IMG-20240910-WA0038.jpg" alt="Air nike bota, zapatillas altas en negro y rojo" width="250" height="200" class="lazy-image">
+                    <h3>Air nike bota</h3>
+                    <p>Talles 34 al 44</p>
+                    <p class="price">Precio: $64500</p>
+                    <button onclick="addToCart('Air nike bota', 64500)">Agregar al carrito</button>
+                </div>
+            </div>
+        </section>
+        <section id="contacto">
+            <h2 style="color: #ffffff;">Contacto</h2>
+            <p style="color: #e0e0e0;">Facebook: <a href="https://www.facebook.com/profile.php?id=100028049235382&amp;mibextid=ZbWKwL" target="_blank" style="color: #4CAF50;">Imporshoes en Facebook</a></p>
+            <p style="color: #e0e0e0;">WhatsApp: <a href="https://wa.me/541161424317" target="_blank" style="color: #4CAF50;">+54 1161424317</a></p>
+        </section>
+    </main>
+    <div id="cart-display" class="cart-display" style="display: none;">
+        <h3>Carrito</h3>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="cart-total">0</span></p>
+        <button onclick="viewCart()">Confirmar Compra</button>
+    </div>
+    <div class="cart">
+        <span onclick="toggleCart()">Carrito (<span id="cart-count">0</span>)</span>
+        <button onclick="closeCart()" style="margin-left: 10px;">X</button>
+    </div>
+    <footer>
+        <p>© 2024 Imporshoes. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        let cart = [];
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            updateCartCount();
+            renderCart();
+            showAddedToCartNotification(productName);
+            saveCartToLocalStorage();
+        }
+
+        function saveCartToLocalStorage() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function loadCartFromLocalStorage() {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCartCount();
+                renderCart();
+            }
+        }
+
+        window.addEventListener('load', loadCartFromLocalStorage);
+
+        function updateCartCount() {
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price}`;
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Eliminar';
+                removeButton.onclick = () => removeFromCart(index);
+                li.appendChild(removeButton);
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+
+            cartTotal.textContent = total;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            renderCart();
+            saveCartToLocalStorage();
+        }
+
+        function toggleCart() {
+            const cartDisplay = document.getElementById('cart-display');
+            cartDisplay.style.display = cartDisplay.style.display === 'none' ? 'block' : 'none';
+            renderCart();
+        }
+
+        function closeCart() {
+            document.getElementById('cart-display').style.display = 'none';
+        }
+
+        function viewCart() {
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            let message = "Resumen del pedido:\n\n";
+            cart.forEach(item => {
+                message += `${item.name} - $${item.price}\n`;
+            });
+            message += `\nTotal: $${total}`;
+            
+            let phoneNumber = "541161424317";
+            let whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                window.location.href = whatsappUrl;
+            } else {
+                window.open(whatsappUrl, '_blank');
+            }
+        }
+
+        function handleImageError(img) {
+            img.onerror = null;
+            img.src = 'https://via.placeholder.com/250x200?text=Image+not+available';
+            img.alt = 'Image not available';
+            img.classList.add('image-placeholder');
+        }
+
+        document.querySelectorAll('.product img').forEach(img => {
+            img.classList.add('lazy-image');
+            img.setAttribute('loading', 'lazy');
+            img.onerror = () => handleImageError(img);
+            img.onload = () => img.classList.add('loaded');
+        });
+
+        const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+
+        document.querySelectorAll('.lazy-image').forEach(img => {
+            lazyImageObserver.observe(img);
+        });
+
+        function createFallingSneakers() {
+            const container = document.querySelector('.falling-sneakers');
+            const sneakerCount = 10;
+            
+            for (let i = 0; i < sneakerCount; i++) {
+                const sneaker = document.createElement('div');
+                sneaker.classList.add('sneaker');
+                sneaker.style.left = `${Math.random() * 100}vw`;
+                sneaker.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                sneaker.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(sneaker);
+            }
+        }
+
+        function showAddedToCartNotification(productName) {
+            const notification = document.createElement('div');
+            notification.textContent = `${productName} agregado al carrito`;
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = '#4CAF50';
+            notification.style.color = 'white';
+            notification.style.padding = '10px';
+            notification.style.borderRadius = '5px';
+            notification.style.zIndex = '1000';
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.transition = 'opacity 0.5s ease-out';
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+
+        createFallingSneakers();
+    </script>
+</body></html>
